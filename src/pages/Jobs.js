@@ -10,6 +10,7 @@ import {
   FormControl,
   Button,
 } from "react-bootstrap";
+import { useSelector, useDispatch } from "react-redux";
 
 const apiAddress = process.env.REACT_APP_SEVER_URL;
 function useQuery() {
@@ -21,7 +22,7 @@ export default function Jobs() {
   const [jobList, setJobList] = useState([]);
   const [keyword, setKeyword] = useState(query.get("q"));
   const [originalList, setOriginalList] = useState([]);
-
+  const dispatch = useDispatch();
   let history = useHistory();
 
   const getData = async () => {
@@ -58,19 +59,35 @@ export default function Jobs() {
   useEffect(() => {
     searchByKey();
   }, [originalList]);
+  const email = useSelector((state) => state.user.email);
+
+  const signOut = () => {
+    alert("sign-out");
+  };
+
   if (jobList.length === 0) {
     return <h1>loading...</h1>;
   }
+
   return (
     <>
       <Container>
         <Navbar bg="light" expand="lg">
-          <Navbar.Brand href="#home">NhieuViec</Navbar.Brand>
+          <Navbar.Brand href="/">NhieuViec</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="mr-auto">
-              <Nav.Link href="#home">Home</Nav.Link>
-              <Nav.Link href="#link">Link</Nav.Link>
+              {email ? (
+                <Nav.Link onClick={() => dispatch({ type: "LOGOUT" })}>
+                  Sign-out
+                </Nav.Link>
+              ) : (
+                <Nav.Link onClick={() => history.push("/login")}>
+                  Login
+                </Nav.Link>
+
+                // <Nav.Link href="/login">Login</Nav.Link> REFRESH PAGE REFRESH STATE
+              )}
             </Nav>
             <Form onSubmit={(e) => searchByKey(e)} inline>
               <FormControl
