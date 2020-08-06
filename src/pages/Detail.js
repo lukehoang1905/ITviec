@@ -14,6 +14,7 @@ export default function Detail({ props }) {
     setJob(data);
     console.log(data);
   };
+
   useEffect(() => {
     getDetailData();
   }, []);

@@ -1,5 +1,5 @@
 import React from "react";
-import { Row, Col, Badge, Card, Hover, Button } from "react-bootstrap";
+import { Row, Col, Badge, Card, Button } from "react-bootstrap";
 import "../App.css";
 import Moment from "react-moment";
 
