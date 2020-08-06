@@ -1,0 +1,13 @@
+* {
+  font-weight: bold;
+}
+.all-login {
+  height: 100vh;
+  background-image: url("https://img.wallpapersafari.com/desktop/1600/900/66/35/myTNuf.jpg");
+}
+#top {
+  padding-top: 35.5vh;
+}
+.empty {
+  height: 50px;
+}
