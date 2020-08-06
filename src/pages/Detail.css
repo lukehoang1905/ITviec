@@ -1,14 +1,13 @@
-body {
+.des {
   overflow: hidden;
   position: absolute;
   width: 100%;
   height: 100%;
   display: flex;
+  flex-direction: column;
   justify-content: center; /*centers items on the line (the x-axis by default)*/
   align-items: center; /*centers items on the cross-axis (y by default)*/
-}
-body {
-  background: url("https://image.freepik.com/free-photo/green-smoke-abstract-black-background-darkness-concept_55716-1471.jpg")
+  background: url("https://us.123rf.com/450wm/backgroundcreator/backgroundcreator1808/backgroundcreator180800301/106016937-green-coloured-smoke-abstract-lighting-on-a-black-background.jpg?ver=6")
     no-repeat center center fixed;
   background-size: cover;
   height: 100%;

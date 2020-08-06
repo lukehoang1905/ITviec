@@ -63,13 +63,22 @@ export default function Jobs() {
   const email = useSelector((state) => state.user.email);
 
   if (jobList.length === 0) {
-    return <h1>loading...</h1>;
+    return (
+      <div style={{ backgroundColor: "black", height: "100vh" }}>
+        <h1>l o a d i n g . . .</h1>
+        <img
+          src="https://thumbs.gfycat.com/ArcticCharmingHeterodontosaurus-max-1mb.gif"
+          alt="loading"
+          style={{ height: "50vh" }}
+        />
+      </div>
+    );
   }
 
   return (
     <div className="all-jobs">
       <Container>
-        <Navbar bg="light" expand="lg">
+        <Navbar style={{ background: "rgba(42,98,61, 0.85)" }} expand="lg">
           <Navbar.Brand href="/">NhieuViec</Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">

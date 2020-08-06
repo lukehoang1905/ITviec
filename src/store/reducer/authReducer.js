@@ -2,7 +2,7 @@ let initialState = {
   user: {
     email: "",
     password: "",
-    isAuthenticated: true,
+    isAuthenticated: false,
   },
   error: "",
 };
