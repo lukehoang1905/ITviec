@@ -61,10 +61,6 @@ export default function Jobs() {
   }, [originalList]);
   const email = useSelector((state) => state.user.email);
 
-  const signOut = () => {
-    alert("sign-out");
-  };
-
   if (jobList.length === 0) {
     return <h1>loading...</h1>;
   }
