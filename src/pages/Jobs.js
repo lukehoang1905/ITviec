@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import { useHistory, useLocation } from "react-router-dom";
 import "../App.css";
+import "./Jobs.css";
 import JobCard from "./JobCard";
 import {
   Container,
@@ -66,7 +67,7 @@ export default function Jobs() {
   }
 
   return (
-    <>
+    <div className="all-jobs">
       <Container>
         <Navbar bg="light" expand="lg">
           <Navbar.Brand href="/">NhieuViec</Navbar.Brand>
@@ -106,6 +107,6 @@ export default function Jobs() {
             <JobCard job={job} key={job.id} getDetail={getDetail} />
           ))}
       </Container>
-    </>
+    </div>
   );
 }

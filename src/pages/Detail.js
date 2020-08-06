@@ -1,5 +1,8 @@
 import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
+import { Container, Row, Col, Card, Button, Badge } from "react-bootstrap";
+import "./Detail.css";
+import Moment from "react-moment";
 const apiAddress = process.env.REACT_APP_SEVER_URL;
 
 export default function Detail({ props }) {
@@ -18,11 +21,12 @@ export default function Detail({ props }) {
   useEffect(() => {
     getDetailData();
   }, []);
+  const now = Date.now();
 
   if (job == null) {
     return (
       <>
-        <h1>"loading..."</h1>
+        <h1>"L o a d i n g . . ."</h1>
         <img
           src="https://thumbs.gfycat.com/ArcticCharmingHeterodontosaurus-max-1mb.gif"
           alt="loading"
@@ -30,11 +34,36 @@ export default function Detail({ props }) {
       </>
     );
   }
+
   return (
     <>
-      <h1>{job.title}</h1>
-      <h2>this is id: {id} </h2>
-      <h4>detail: {job.description}</h4>
+      <Container>
+        <Card>
+          <Card.Header as="h1">{job.title}</Card.Header>
+          <Card.Body>
+            <Badge variant="info">Up to ${job.salary}</Badge>
+            <Row>
+              <Col>
+                <div className="jobcard-logo">
+                  <img
+                    src={job.img}
+                    alt="company-logo"
+                    style={{ width: `100px` }}
+                  />
+                  <p>Location : {job.city}</p>
+                </div>
+              </Col>
+              <Col xs={8}>
+                <h4 style={{ textAlign: "left" }}>{job.description}</h4>
+              </Col>
+            </Row>
+            <Card.Text>
+              Updated <Moment fromNow>{job.time}</Moment>
+            </Card.Text>
+            <Button variant="success">Apply Now!</Button>
+          </Card.Body>
+        </Card>
+      </Container>
     </>
   );
 }
